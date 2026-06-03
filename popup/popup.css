@@ -148,7 +148,7 @@ body {
 .slider-thumb {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, 50%);
+    transform: translateX(-50%);
     width: 14px;
     height: 14px;
     background: var(--bg-2);

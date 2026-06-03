@@ -80,13 +80,11 @@ function updateSliderVisual(i) {
 
     const trackH = track.clientHeight || 120;
     const pct = gains[i] / MAX_GAIN; // -1 to +1
-    const centerPx = trackH / 2;
-    const offsetPx = pct * centerPx;
 
-    // Position thumb: bottom of track = -MAX_GAIN, top = +MAX_GAIN
-    const thumbBottom = centerPx - offsetPx; // px from bottom
-    thumb.style.bottom = `${thumbBottom}px`;
-    thumb.style.top = 'auto';
+
+    const topPct = 50 - (pct * 50); // 0% = top, 100% = bottom
+    thumb.style.top = `calc(${topPct}% - 7px)`; // 7px = half thumb height
+    thumb.style.bottom = 'auto';
 
     // Fill bar
     if (gains[i] >= 0) {
