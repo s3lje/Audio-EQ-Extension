@@ -2,9 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser EQ</title>
+    <link rel="stylesheet" href="popup.css">
 </head>
 <body>
+<div class="app">
+    <header class="app-header">
+        <span class="logo">EQ</span>
+        <span class="title">Browser Equalizer</span>
+        <button class="reset-btn" id="resetBtn" title="Reset to flat">↺</button>
+    </header>
 
+    <div class="eq-container" id="eqContainer">
+        <!-- Bands injected by popup.js -->
+    </div>
+
+    <div class="eq-curve-canvas-wrapper">
+        <canvas id="eqCurve" width="340" height="80"></canvas>
+    </div>
+
+    <footer class="app-footer">
+        <label class="toogle-label">
+            <input type="checkbox" id="bypassToggle">
+            <span class="toggle-track">
+                <span class="toggle-thumb"></span>
+            </span>
+            <span>Bypass</span>
+        </label>
+        <span class="version">v1.0></span>
+    </footer>
+
+</div>
+<script src="popup.js"></script>
 </body>
 </html>
