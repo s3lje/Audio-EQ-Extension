@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Browser EQ",
+  "version": "1.0.0",
+  "description": "A minimalist equalizer for all browser audio.",
+
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+
+  "browser_action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Browser EQ"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  }
+}
