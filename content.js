@@ -41,14 +41,16 @@
         return source;
     };
 
-    window.addEventListener("message", (event) => {
-        if (event.source !== window) return;
-        if (!event.data || event.data.type !== "EQ_UPDATE") return;
-
-        const {bandIndex, gain} = event.data;
-        contexts.forEach(({filters}) => {
+    browser.runtime.onMessage.addListener((message) => {
+        if (!message || message.type !== 'EQ_UPDATE') return;
+        const { bandIndex, gain } = message;
+        contexts.forEach(({ filters }) => {
             if (filters[bandIndex]) {
-                filters[bandIndex].gain.setTargetAtTime(gain, filters[bandIndex].context.currentTime, 0.01);
+                filters[bandIndex].gain.setTargetAtTime(
+                    gain,
+                    filters[bandIndex].context.currentTime,
+                    0.01
+                );
             }
         });
     });
